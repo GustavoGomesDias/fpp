@@ -4,4 +4,7 @@
 
 typedef struct resource resource;
 
+resource *get_next_res(resource *res);
+void set_next_res(resource *this, resource *next_res);
+
 #endif
