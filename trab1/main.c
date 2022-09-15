@@ -6,6 +6,7 @@ int global;
 void * thr_func(void* args) {
   global = 40;
   printf("Nova thread: %d\n", global);
+  return NULL;
 }
 
 int main(void) {
