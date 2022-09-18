@@ -1,21 +1,28 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include <pthread.h>
+#include <semaphore.h>
+#include <stdio.h>
+#include "resource.h"
+#include "lab.h"
+#include "infected.h"
 
-int global;
-void * thr_func(void* args) {
-  global = 40;
-  printf("Nova thread: %d\n", global);
-  return NULL;
-}
+int main() {
+  lab *l_1 = create_lab("insumo secreto", "vírus", 0);
+  lab *l_2 = create_lab("vírus", "injeção", 1);
+  lab *l_3 = create_lab("injeção", "insumo secreto", 2);
 
-int main(void) {
-  pthread_t tid;
-  global = 20;
-  printf("Thread principal %d\n", global);
-  pthread_create(&tid, NULL, thr_func, NULL);
-  global = 30;
-  pthread_join(tid, NULL);
-  printf("Thread principal: %d\n", global);
+  infected *in_1 = create_infected("vírus");
+  infected *in_2 = create_infected("injeção");
+  infected *in_3 = create_infected("insumo secreto");
+
+  add_necessary_res(in_1, "injeção");
+  add_necessary_res(in_1, "insumo secreto");
+
+  add_necessary_res(in_2, "vírus");
+  add_necessary_res(in_2, "insumo secreto");
+
+  add_necessary_res(in_3, "injeção");
+  add_necessary_res(in_3, "vírus");
+
+  // labs make resources
   return 0;
 }

@@ -4,14 +4,15 @@
 
 typedef struct lab lab;
 
-lab *create_lab(char first_res[120], char second_res[120]);
+lab *create_lab(char first_res[], char second_res[], int id);
 
 resource *make_first_resource(lab *this);
-
 resource *make_second_resource(lab *this);
-
 resource **make_all_resources(lab *this);
 
-int get_infected_cycle_count(lab *this);
+int get_lab_cycle_count(lab *this);
+void set_lab_cycle_count(lab *this);
+
+int get_lab_id(lab *this);
 
 #endif

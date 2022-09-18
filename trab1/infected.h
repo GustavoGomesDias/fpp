@@ -4,13 +4,13 @@
 
 typedef struct infected infected;
 
-infected *make_infected(resource *infinite_res);
+infected *create_infected(char infinite_res[]);
 
-void add_necessary_res(infected *this, resource *new_necessary_res);
+void add_necessary_res(infected *this, char new_necessary_res[]);
 
 void add_my_res(infected *this, resource *new_res);
 
-resource *get_necessary_res(infected *this);
+char *get_necessary_res(infected *this, int position);
 
 int get_infected_cycle_count(infected *this);
 
