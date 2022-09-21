@@ -31,7 +31,7 @@ void set_res(cell *this, resource *res) {
 }
 
 void remove_res(cell *this) {
-  this->res == NULL;
+  this->res = NULL;
 }
 
 resource *get_cell_res(cell *this) {

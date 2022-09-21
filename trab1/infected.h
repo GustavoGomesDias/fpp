@@ -13,7 +13,10 @@ void add_my_res(infected *this, resource *new_res);
 char *get_necessary_res(infected *this, int position);
 
 int get_infected_cycle_count(infected *this);
+void set_infected_cycle_count(infected *this);
 
 void make_solution(infected *this);
+
+char *get_inf_res(infected *this);
 
 #endif

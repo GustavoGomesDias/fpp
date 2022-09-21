@@ -9,7 +9,7 @@ struct infected {
   int cycle_count; // number of vaccines produced
 
   char *infinite_res;
-  char **necessary_res;
+  char *necessary_res[2];
   resource **my_res;
 };
 
@@ -19,7 +19,6 @@ infected *create_infected(char infinite_res[]) {
   // strcpy(new_infected->infinite_res, infinite_res);
 
   new_infected->infinite_res = infinite_res;
-  new_infected->necessary_res = malloc(sizeof(char *) * 2);
   new_infected->my_res = malloc(sizeof(resource *) * 2);
   new_infected->necessary_res_size = 0;
   new_infected->my_res_size = 0;
@@ -28,7 +27,6 @@ infected *create_infected(char infinite_res[]) {
   return new_infected;
 }
 
-
 void add_necessary_res(infected *this, char new_necessary_res[]) {
   if (this->necessary_res_size == 2) {
     return;
@@ -36,11 +34,11 @@ void add_necessary_res(infected *this, char new_necessary_res[]) {
 
   if (this->necessary_res[0] == NULL) {
     this->necessary_res_size += 1;
-    strcpy(this->necessary_res[0], new_necessary_res);
+    this->necessary_res[0] = new_necessary_res;
     return;
   }
 
-  strcpy(this->necessary_res[1], new_necessary_res);
+  this->necessary_res[1] = new_necessary_res;
   this->necessary_res_size += 1;
 }
 
@@ -68,8 +66,19 @@ int get_infected_cycle_count(infected *this) {
   return this->cycle_count;
 }
 
+void set_infected_cycle_count(infected *this) {
+  this->cycle_count += 1;
+}
+
 void make_solution(infected *this) {
   if (this->my_res_size == 2) {
     this->cycle_count += 1;
+    this->my_res_size = 0;
   }
+
+  return;
+}
+
+char *get_inf_res(infected *this) {
+  return this->infinite_res;
 }

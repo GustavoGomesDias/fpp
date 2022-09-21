@@ -32,7 +32,7 @@ resource *make_second_resource(lab *this) {
 resource **make_all_resources(lab *this) {
   resource **res_list = malloc(sizeof(resource *) * 2);
   res_list[0] = make_first_resource(this);
-  res_list[1] = make_second_resource(this);
+  // res_list[1] = make_second_resource(this);
   this->cycle_count += 1;
   return res_list;
 }
@@ -45,6 +45,6 @@ void set_lab_cycle_count(lab *this) {
   this->cycle_count += 1;
 }
 
-int get_lab_id(lab *this) {
+int get_laboratory_id(lab *this) {
   return this->id;
 }

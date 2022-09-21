@@ -13,6 +13,6 @@ resource **make_all_resources(lab *this);
 int get_lab_cycle_count(lab *this);
 void set_lab_cycle_count(lab *this);
 
-int get_lab_id(lab *this);
+int get_laboratory_id(lab *this);
 
 #endif

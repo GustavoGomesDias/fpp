@@ -1,6 +1,7 @@
 #ifndef __cell_h__
 #define __cell_h__
 #include "resource.h"
+#include "semaphore.h"
 
 typedef struct cell cell;
 
