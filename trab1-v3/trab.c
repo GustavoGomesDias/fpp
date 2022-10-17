@@ -256,5 +256,20 @@ int main(int argc,char* argv[])
   printf("Lab 2: %d\n", rc->labs[1]);
   printf("Lab 3: %d\n", rc->labs[2]);
 
+
+  free(if0);
+  free(if1);
+  free(if2);
+
+  free(l0);
+  free(l1);
+  free(l2);
+
+  free(rc);
+
+  for (int i = 0; i < 6; i++)
+  {
+    sem_destroy(&sem_board[i]);
+  }
   return 0;
 }
